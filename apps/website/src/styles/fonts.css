@@ -1,0 +1,137 @@
+
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-ThinOblique.otf");
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-Thin.otf");
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-ExtraLightOblique.otf");
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-ExtraLight.otf");
+  font-weight: 200;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-LightOblique.otf");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-Light.otf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-RegularOblique.otf");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-Regular.otf");
+  font-weight: 400;
+  font-style: normal;
+}
+/* @font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-NormalOblique.otf");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-Normal.otf");
+  font-weight: 400;
+  font-style: normal;
+} */
+
+
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-MediumOblique.otf");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-Medium.otf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-DemiBoldOblique.otf");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-DemiBold.otf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-BoldOblique.otf");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-Bold.otf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-ExtraBoldOblique.otf");
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-ExtraBold.otf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-HeavyOblique.otf");
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("/fonts/articulat/ArticulatCF-Heavy.otf");
+  font-weight: 900;
+  font-style: normal;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@isema/notification",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.ts"
+  },
+  "dependencies": {
+    "@isema/react-notification-context": "0.0.0",
+    "@isema/ui": "0.0.0"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0"
+  }
+}

@@ -1,0 +1,10 @@
+@reference "@pkg/tw/index.css";
+
+@layer components {
+  .panel {
+    @apply bg-white dark:bg-zinc-900
+      border border-zinc-950/10 dark:border-white/10
+      shadow outline-0 rounded-md 
+      mt-1.5 z-50;
+  }
+}

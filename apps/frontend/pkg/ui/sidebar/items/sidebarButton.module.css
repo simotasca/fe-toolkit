@@ -1,0 +1,9 @@
+@reference "@pkg/tw/index.css";
+
+@layer components {
+  .button {
+    @apply relative block cursor-pointer
+      hover:bg-zinc-200 dark:hover:bg-white/10
+      focus:outline-none focus-visible:outline-indigo-300/40;
+  }
+}

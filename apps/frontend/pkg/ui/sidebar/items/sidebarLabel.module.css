@@ -1,0 +1,7 @@
+@reference "@pkg/tw/index.css";
+
+@layer components {
+  .label {
+    @apply text-sm/6 truncate pr-4 text-zinc-950 dark:text-zinc-100;
+  }
+}

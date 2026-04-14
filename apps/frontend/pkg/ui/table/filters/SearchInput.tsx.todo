@@ -1,0 +1,43 @@
+import { Input, InputGroup } from "../../form";
+import { useEffect } from "react";
+import { useRef } from "react";
+import IconSearch from "~icons/material-symbols/search";
+
+export function SearchInput(p: { value?: string; setValue(v: string): void }) {
+  const ref = useRef<HTMLInputElement>(null);
+  useSearchInput(ref);
+
+  return (
+    <InputGroup className="group/search-input relative max-w-72">
+      <IconSearch />
+      <Input
+        ref={ref}
+        size="sm"
+        placeholder="Cerca..."
+        value={p.value}
+        onChange={(e) => p.setValue(e.target.value)}
+      />
+      {!p.value && (
+        <div className="group-focus-within/search-input:hidden absolute top-1/2 -translate-y-1/2 right-1.5 pointer-events-none">
+          <div className="bg-zinc-300 dark:bg-zinc-700 rounded-sm p-2 sm:p-1 font-medium text-sm/none sm:text-xs/none opacity-40 font-mono">
+            Ctrl<span className="font-sans"> + </span>K
+          </div>
+        </div>
+      )}
+    </InputGroup>
+  );
+}
+
+/** Makes an input focusable via ctrl + k */
+function useSearchInput(ref: React.RefObject<HTMLInputElement | null>) {
+  useEffect(() => {
+    const listener = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.key === "k") {
+        e.preventDefault();
+        ref.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", listener);
+    return () => window.removeEventListener("keydown", listener);
+  }, []);
+}

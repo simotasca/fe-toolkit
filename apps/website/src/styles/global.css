@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@import "./fonts.css";
+
+@theme {
+  --font-articulat: "ArticulatCF", sans-serif; 
+  --font-serif: "Merriweather", serif; 
+}
+
+@layer base {
+  * {
+    text-underline-offset: 4px;
+  }
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-10;
+  }
+}

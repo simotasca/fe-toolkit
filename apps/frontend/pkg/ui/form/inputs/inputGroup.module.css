@@ -1,0 +1,16 @@
+@reference "@pkg/tw/index.css";
+@reference "../../index.css";
+
+@layer components {
+  .inputGroup {
+    @apply relative isolate block w-full;
+    /* Input styles */
+    @apply has-[[data-slot=icon]:first-child]:**:data-[slot=control]:pl-10 has-[[data-slot=icon]:last-child]:**:data-[slot=control]:pr-10 sm:has-[[data-slot=icon]:first-child]:**:data-[slot=control]:pl-8 sm:has-[[data-slot=icon]:last-child]:**:data-[slot=control]:pr-8;
+    /* Icon styles */
+    @apply icon:pointer-events-none icon:absolute icon:z-10 icon:size-5 icon:top-1/2 icon:-translate-y-1/2 sm:icon:size-4;
+    /* Icon positioning */
+    @apply [&>[data-slot=icon]:first-child]:left-3 sm:[&>[data-slot=icon]:first-child]:left-2.5 [&>[data-slot=icon]:last-child]:right-3 sm:[&>[data-slot=icon]:last-child]:right-2.5;
+    /* Icon colors */
+    @apply icon:text-zinc-500 dark:icon:text-zinc-400;
+  }
+}

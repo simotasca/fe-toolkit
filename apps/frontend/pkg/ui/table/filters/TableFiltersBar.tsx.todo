@@ -1,0 +1,12 @@
+import { Text } from "../../typography/Text";
+
+export function TableFiltersBar(p: React.PropsWithChildren) {
+  return (
+    <div>
+      <Text>Filtri:</Text>
+      <div className="hbox flex-wrap gap-x-2 mt-1">
+        {p.children}
+      </div>
+    </div>
+  );
+}

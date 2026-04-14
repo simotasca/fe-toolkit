@@ -1,0 +1,16 @@
+@reference "@pkg/tw/index.css";
+
+@layer components {
+  .switchField {
+    /* Base layout */
+    @apply grid grid-cols-[1fr_auto] items-center gap-x-8 gap-y-1 sm:grid-cols-[1fr_auto];
+    /* Control layout */
+    @apply *:data-[slot=control]:col-start-2 *:data-[slot=control]:self-center;
+    /* Label layout */
+    @apply *:data-[slot=label]:text-sm *:data-[slot=label]:col-start-1 *:data-[slot=label]:row-start-1 *:data-[slot=label]:justify-self-start;
+    /* Description layout */
+    @apply *:data-[slot=description]:col-start-1 *:data-[slot=description]:row-start-2;
+    /* With description */
+    @apply **:data-[slot=label]:has-data-[slot=description]:font-medium;
+  }
+}

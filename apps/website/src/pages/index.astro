@@ -1,0 +1,86 @@
+---
+import imgCopertina from "@/assets/copertina-echad-numero1.jpg";
+import imgLogoEchad from "@/assets/logo-echad.png";
+import imgSkyLight from "@/assets/sky-light.jpg";
+import BaseHead from "@/components/BaseHead.astro";
+import Image from "astro/components/Image.astro";
+import IconFacebook from "~icons/mdi/facebook";
+import IconInstagram from "~icons/mdi/instagram";
+import IconLinkedin from "~icons/mdi/linkedin";
+import IconTwitter from "~icons/mdi/twitter";
+import IconWhatsapp from "~icons/mdi/whatsapp";
+---
+
+<html lang="it">
+  <head>
+    <BaseHead />
+  </head>
+  <body class="bg-sky-200">
+    <header class="relative isolate z-10">
+      <div class="bg-neutral-50 font-serif">
+        <div
+          class="container grid grid-cols-[1fr_auto_1fr] items-center"
+        >
+          <nav>
+            <ul class="flex items-baseline gap-x-8 [&_button]:py-4">
+              <!-- <li><a href="#"><button class="py-4 pr-4 text-2xl">ECHAD</button></a></li> -->
+              <li><a href="#"><button class="py-4 hover:underline">HOME</button></a></li>
+              <li><a href="#"><button class="py-4 hover:underline">CHI SIAMO</button></a></li>
+              <li><a href="#"><button class="py-4 hover:underline">LEGGI IL TANYA</button></a></li>
+              <li><a href="#"><button class="py-4 hover:underline">ARTICOLI</button></a></li>
+            </ul>
+          </nav>
+          <Image src={imgLogoEchad} alt="Logo Echad" class="h-20 w-auto" />
+          <nav>
+            <ul class="flex justify-end gap-x-8">
+              <li><a href="#"><button class="py-4 hover:underline">HOME</button></a></li>
+              <li><a href="#"><button class="py-4 hover:underline">LEGGI IL TANYA</button></a></li>
+              <li><a href="#"><button class="py-4 hover:underline">ARTICOLI</button></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="absolute top-full left-0 w-screen h-[3px] bg-amber-300 origin-center -rotate-[0.2deg]"></div>
+      <div class="absolute top-full left-0 w-screen h-[3px] bg-sky-600  origin-center rotate-[0.2deg]"></div>
+    </header>
+
+    <main class="relative bg-cover bg-center" style={`background-image: url(${imgSkyLight.src});`}>
+      <div class="container pt-5 pb-4">
+        <ul class="flex gap-x-5 mix-blend-difference text-white">
+          <li class="ml-auto"><a href="#"><IconTwitter /></a></li>
+          <li><a href="#"><IconFacebook /></a></li>
+          <li><a href="#"><IconInstagram /></a></li>
+          <li><a href="#"><IconLinkedin /></a></li>
+          <li><a href="#"><IconWhatsapp /></a></li>
+        </ul>
+      </div>
+
+      <div class="container grid grid-cols-3 gap-10 pt-4 pb-8">
+        <div class="col-span-2 pt-10">
+          <div class="font-serif">
+            <h1 class="font-medium text-4xl leading-relaxed">ECHAD</h1>
+            <p class="text-xl">Un progetto per la comunità</p>
+          </div>
+        </div>
+        <div class="relative h-100">
+          <div class="absolute w-fit h-full flex gap-x-10">
+            <Image src={imgCopertina} alt="Copertina Echad numero 1" class="w-auto h-full" />
+            <Image src={imgCopertina} alt="Copertina Echad numero 1" class="w-auto h-auto" />
+            <Image src={imgCopertina} alt="Copertina Echad numero 1" class="w-auto h-auto" />
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white text-black text-4xl py-2 font-articulat">
+        {
+          Array.from({ length: 9 }).map((_, i) => (i+1)*100).map(i => 
+            <div style={`font-weight: ${i};`}>
+              ({i}) Lorem ipsum dolor sit amet, <i>consectetur adipiscing elit.</i> 
+            </div>
+          )}
+      </div>
+      
+    </main>
+  </body>
+</html>

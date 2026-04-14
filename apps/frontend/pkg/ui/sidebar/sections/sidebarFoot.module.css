@@ -1,0 +1,7 @@
+@reference "@pkg/tw/index.css";
+
+@layer components {
+  .foot {
+    @apply shrink-0 py-4 bg-zinc-200/40 dark:bg-zinc-910 border-t border-zinc-300 dark:border-zinc-800;
+  }
+}
