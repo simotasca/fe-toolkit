@@ -1,0 +1,6 @@
+/* sidebar */
+@utility w-sidebar-* { width: --value(--sidebar-*) }
+@theme {
+  --sidebar-open: --spacing(60); /* 72 */
+  --sidebar-closed: calc(--spacing(14) + 1px);
+}

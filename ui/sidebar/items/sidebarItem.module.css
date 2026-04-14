@@ -1,0 +1,8 @@
+@reference "@pkg/tw/index.css";
+@import "../../index.css";
+
+@layer components {
+  .item {
+    @apply flex items-center justify-start gap-1 w-sidebar-open icon:px-[1.1rem] icon:w-sidebar-closed icon:flex-shrink-0;
+  }
+}

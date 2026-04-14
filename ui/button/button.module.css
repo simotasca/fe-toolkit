@@ -1,0 +1,928 @@
+@reference "@pkg/tw/index.css";
+@reference "../index.css";
+
+@layer components {
+  .uiButton {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 1px;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    cursor: pointer;
+    outline: none;
+    
+    &:focus {
+      outline: 2px solid --alpha(var(--color-blue-500) / 50%);
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      opacity: 60%;
+      
+      @variant dark {
+        opacity: 50%;
+      }
+      
+      cursor: inherit;
+    }
+
+    @variant icon {
+      flex-shrink: 0;
+      width: --spacing(5);
+      height: --spacing(5);
+      margin: --spacing(0.5) --spacing(-0.5);
+    }
+
+    &.sizeBase {
+      gap: 0 --spacing(2.5);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-sm);
+      line-height: --spacing(6);
+      padding: --spacing(2.5 - 1px) --spacing(3.5 - 1px);
+      
+      @variant sm {
+        padding: --spacing(1.5 - 1px) --spacing(3 - 1px);
+
+        @variant icon {
+          width: --spacing(4);
+          height: --spacing(4);
+          margin: --spacing(1) --spacing(-0.5);
+        }
+      }
+    }
+
+    &.sizeSm {
+      gap: 0 --spacing(1.5);
+      border-radius: var(--radius-md);
+      font-size: var(--text-xs);
+      line-height: --spacing(5);
+      padding: --spacing(2.5 - 1px) --spacing(3.5 - 1px);
+
+      @variant icon {
+        margin: --spacing(0.5) -1px;
+      }
+
+      @variant sm {
+        padding: --spacing(1 - 1px) --spacing(2 - 1px);
+
+        @variant icon {
+          width: --spacing(3.5);
+          height: --spacing(3.5);
+          margin: 0.1875rem -1px;
+        }
+      }
+    }
+
+    /* =========================
+      LIGHT
+    ========================= */
+
+    &.colorLight_Solid {
+      background: transparent;
+      border-color: --alpha(var(--color-zinc-950) / 10%);
+
+      &:enabled:hover {
+        border-color: --alpha(var(--color-zinc-950) / 20%);
+      }
+
+      @variant dark {
+        background: --alpha(var(--color-white) / 5%);
+        border-color: --alpha(var(--color-white) / 10%);
+        color: var(--color-white);
+
+        &:enabled:hover {
+          border-color: --alpha(var(--color-white) / 20%);
+        }
+      }
+
+      @variant icon {
+        @variant dark {
+          color: var(--color-zinc-100);
+
+          &:enabled:hover {
+            color: var(--color-white);
+          }
+        }
+      }
+    }
+
+    &.colorLight_Outline {
+      background: transparent;
+      border-color: --alpha(var(--color-zinc-950) / 10%);
+
+      &:enabled:hover {
+        border-color: --alpha(var(--color-zinc-950) / 20%);
+      }
+
+      @variant dark {
+        background: --alpha(var(--color-white) / 5%);
+        border-color: --alpha(var(--color-white) / 10%);
+        color: var(--color-white);
+
+        &:enabled:hover {
+          border-color: --alpha(var(--color-white) / 20%);
+        }
+      }
+
+      @variant icon {
+        @variant dark {
+          color: var(--color-zinc-100);
+
+          &:enabled:hover {
+            color: var(--color-white);
+          }
+        }
+      }
+    }
+
+    /* =========================
+      GRAY
+    ========================= */
+
+    &.colorGray_Solid {
+      color: var(--color-white);
+      background: var(--color-gray-600);
+      border-color: --alpha(var(--color-gray-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-gray-700);
+      }
+
+      @variant dark {
+        &:enabled:hover {
+          background: var(--color-gray-500);
+        }
+      }
+
+      @variant icon {
+        color: var(--color-gray-400);
+
+        @variant dark {
+          &:enabled:hover {
+            color: var(--color-white);
+          }
+        }
+      }
+    }
+
+    &.colorGray_Outline {
+      color: var(--color-gray-700);
+      border-color: var(--color-gray-700);
+
+      &:enabled:hover {
+        background: var(--color-gray-100);
+      }
+
+      @variant dark {
+        color: var(--color-white);
+
+        &:enabled:hover {
+          background: --alpha(var(--color-white) / 10%);
+        }
+      }
+
+      @variant icon {
+        color: var(--color-gray-400);
+
+        &:enabled:hover {
+          color: var(--color-gray-100);
+        }
+      }
+    }
+
+    /* =========================
+      ZINC
+    ========================= */
+
+    &.colorZinc_Solid {
+      color: var(--color-white);
+      background: var(--color-zinc-600);
+      border-color: --alpha(var(--color-zinc-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-zinc-700);
+      }
+
+      @variant dark {
+        &:enabled:hover {
+          background: var(--color-zinc-500);
+        }
+      }
+
+      @variant icon {
+        color: var(--color-zinc-400);
+
+        @variant dark {
+          &:enabled:hover {
+            color: var(--color-white);
+          }
+        }
+      }
+    }
+
+    &.colorZinc_Outline {
+      color: var(--color-zinc-700);
+      border-color: var(--color-zinc-700);
+
+      &:enabled:hover {
+        background: var(--color-zinc-100);
+      }
+
+      @variant dark {
+        color: var(--color-white);
+
+        &:enabled:hover {
+          background: --alpha(var(--color-white) / 10%);
+        }
+      }
+
+      @variant icon {
+        color: var(--color-zinc-400);
+
+        &:enabled:hover {
+          color: var(--color-zinc-100);
+        }
+      }
+    }
+
+    /* =========================
+      RED
+    ========================= */
+
+    &.colorRed_Solid {
+      color: var(--color-white);
+      background: var(--color-red-600);
+      border-color: --alpha(var(--color-red-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-red-500);
+      }
+
+      @variant icon {
+        color: var(--color-white);
+      }
+    }
+
+    &.colorRed_Outline {
+      color: var(--color-red-600);
+      border-color: --alpha(var(--color-red-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-red-400) / 20%);
+        color: var(--color-white);
+      }
+
+      @variant dark {
+        color: var(--color-red-100);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-red-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-red-50);
+        }
+      }
+    }
+
+    /* =========================
+      BLUE
+    ========================= */
+
+    &.colorBlue_Solid {
+      color: var(--color-white);
+      background: var(--color-blue-600);
+      border-color: --alpha(var(--color-blue-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-blue-500);
+      }
+
+      @variant icon {
+        color: var(--color-white);
+      }
+    }
+
+    &.colorBlue_Outline {
+      color: var(--color-blue-100);
+      border-color: --alpha(var(--color-blue-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-blue-400) / 20%);
+        color: var(--color-white);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-blue-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-blue-50);
+        }
+      }
+    }
+
+    /* =========================
+      ORANGE
+    ========================= */
+
+    &.colorOrange_Solid {
+      color: var(--color-white);
+      background: var(--color-orange-600);
+      border-color: --alpha(var(--color-orange-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-orange-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorOrange_Outline {
+      color: var(--color-orange-100);
+      border-color: --alpha(var(--color-orange-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-orange-400) / 20%);
+        color: var(--color-white);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-orange-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-orange-50);
+        }
+      }
+    }
+
+    /* =========================
+      AMBER
+    ========================= */
+
+    &.colorAmber_Solid {
+      color: var(--color-white);
+      background: var(--color-amber-600);
+      border-color: --alpha(var(--color-amber-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-amber-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorAmber_Outline {
+      color: var(--color-amber-100);
+      border-color: --alpha(var(--color-amber-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-amber-400) / 20%);
+        color: var(--color-white);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-amber-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-amber-50);
+        }
+      }
+    }
+
+    /* =========================
+      YELLOW
+    ========================= */
+
+    &.colorYellow_Solid {
+      color: var(--color-white);
+      background: var(--color-yellow-600);
+      border-color: --alpha(var(--color-yellow-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-yellow-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorYellow_Outline {
+      color: var(--color-yellow-100);
+      border-color: --alpha(var(--color-yellow-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-yellow-400) / 20%);
+        color: var(--color-white);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-yellow-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-yellow-50);
+        }
+      }
+    }
+
+    /* =========================
+      LIME
+    ========================= */
+
+    &.colorLime_Solid {
+      color: var(--color-white);
+      background: var(--color-lime-600);
+      border-color: --alpha(var(--color-lime-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-lime-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorLime_Outline {
+      color: var(--color-lime-100);
+      border-color: --alpha(var(--color-lime-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-lime-400) / 20%);
+        color: var(--color-white);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-lime-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-lime-50);
+        }
+      }
+    }
+
+    /* =========================
+      GREEN
+    ========================= */
+
+    &.colorGreen_Solid {
+      color: var(--color-white);
+      background: var(--color-green-600);
+      border-color: --alpha(var(--color-green-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-green-500);
+        border-color: --alpha(var(--color-green-600) / 90%);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorGreen_Outline {
+      color: var(--color-green-200);
+      border-color: --alpha(var(--color-green-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-green-400) / 20%);
+        color: var(--color-green-50);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-green-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-green-100);
+        }
+      }
+    }
+
+    /* =========================
+      EMERALD
+    ========================= */
+
+    &.colorEmerald_Solid {
+      color: var(--color-white);
+      background: var(--color-emerald-600);
+      border-color: --alpha(var(--color-emerald-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-emerald-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorEmerald_Outline {
+      color: var(--color-emerald-200);
+      border-color: --alpha(var(--color-emerald-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-emerald-400) / 20%);
+        color: var(--color-emerald-50);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-emerald-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-emerald-100);
+        }
+      }
+    }
+
+    /* =========================
+      TEAL
+    ========================= */
+
+    &.colorTeal_Solid {
+      color: var(--color-white);
+      background: var(--color-teal-600);
+      border-color: --alpha(var(--color-teal-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-teal-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorTeal_Outline {
+      color: var(--color-teal-200);
+      border-color: --alpha(var(--color-teal-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-teal-400) / 20%);
+        color: var(--color-teal-50);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-teal-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-teal-100);
+        }
+      }
+    }
+
+    /* =========================
+      CYAN
+    ========================= */
+
+    &.colorCyan_Solid {
+      color: var(--color-white);
+      background: var(--color-cyan-600);
+      border-color: --alpha(var(--color-cyan-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-cyan-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorCyan_Outline {
+      color: var(--color-cyan-200);
+      border-color: --alpha(var(--color-cyan-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-cyan-400) / 20%);
+        color: var(--color-cyan-50);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-cyan-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-cyan-100);
+        }
+      }
+    }
+
+    /* =========================
+      SKY
+    ========================= */
+
+    &.colorSky_Solid {
+      color: var(--color-white);
+      background: var(--color-sky-600);
+      border-color: --alpha(var(--color-sky-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-sky-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorSky_Outline {
+      color: var(--color-sky-200);
+      border-color: --alpha(var(--color-sky-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-sky-400) / 20%);
+        color: var(--color-sky-50);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-sky-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-sky-100);
+        }
+      }
+    }
+
+    /* =========================
+      INDIGO
+    ========================= */
+
+    &.colorIndigo_Solid {
+      color: var(--color-white);
+      background: var(--color-indigo-600);
+      border-color: --alpha(var(--color-indigo-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-indigo-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 70%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorIndigo_Outline {
+      color: var(--color-indigo-100);
+      border-color: --alpha(var(--color-indigo-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-indigo-400) / 20%);
+        color: var(--color-white);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-indigo-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-indigo-50);
+        }
+      }
+    }
+
+    /* =========================
+      VIOLET
+    ========================= */
+
+    &.colorViolet_Solid {
+      color: var(--color-white);
+      background: var(--color-violet-600);
+      border-color: --alpha(var(--color-violet-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-violet-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorViolet_Outline {
+      color: var(--color-violet-100);
+      border-color: --alpha(var(--color-violet-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-violet-400) / 20%);
+        color: var(--color-white);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-violet-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-violet-50);
+        }
+      }
+    }
+
+    /* =========================
+      PURPLE
+    ========================= */
+
+    &.colorPurple_Solid {
+      color: var(--color-white);
+      background: var(--color-purple-600);
+      border-color: --alpha(var(--color-purple-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-purple-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorPurple_Outline {
+      color: var(--color-purple-100);
+      border-color: --alpha(var(--color-purple-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-purple-400) / 20%);
+        color: var(--color-white);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-purple-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-purple-50);
+        }
+      }
+    }
+
+    /* =========================
+      FUCHSIA
+    ========================= */
+
+    &.colorFuchsia_Solid {
+      color: var(--color-white);
+      background: var(--color-fuchsia-600);
+      border-color: --alpha(var(--color-fuchsia-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-fuchsia-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorFuchsia_Outline {
+      color: var(--color-fuchsia-100);
+      border-color: --alpha(var(--color-fuchsia-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-fuchsia-400) / 20%);
+        color: var(--color-white);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-fuchsia-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-fuchsia-50);
+        }
+      }
+    }
+
+    /* =========================
+      PINK
+    ========================= */
+
+    &.colorPink_Solid {
+      color: var(--color-white);
+      background: var(--color-pink-600);
+      border-color: --alpha(var(--color-pink-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-pink-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorPink_Outline {
+      color: var(--color-pink-100);
+      border-color: --alpha(var(--color-pink-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-pink-400) / 20%);
+        color: var(--color-white);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-pink-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-pink-50);
+        }
+      }
+    }
+
+    /* =========================
+      ROSE
+    ========================= */
+
+    &.colorRose_Solid {
+      color: var(--color-white);
+      background: var(--color-rose-600);
+      border-color: --alpha(var(--color-rose-700) / 90%);
+
+      &:enabled:hover {
+        background: var(--color-rose-500);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-white) / 60%);
+
+        &:enabled:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &.colorRose_Outline {
+      color: var(--color-rose-100);
+      border-color: --alpha(var(--color-rose-600) / 90%);
+
+      &:enabled:hover {
+        background: --alpha(var(--color-rose-400) / 20%);
+        color: var(--color-white);
+      }
+
+      @variant icon {
+        color: --alpha(var(--color-rose-400) / 80%);
+
+        &:enabled:hover {
+          color: var(--color-rose-50);
+        }
+      }
+    }
+
+  }
+}

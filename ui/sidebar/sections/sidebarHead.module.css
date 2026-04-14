@@ -1,0 +1,7 @@
+@reference "@pkg/tw/index.css";
+
+@layer components {
+  .head {
+    @apply shrink-0 bg-zinc-200/40 dark:bg-zinc-910 border-b border-zinc-300 dark:border-zinc-800;
+  }
+}

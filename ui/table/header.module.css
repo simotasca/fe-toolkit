@@ -1,0 +1,11 @@
+@reference "@pkg/tw/index.css";
+
+@layer components {
+  .header {
+    @apply pb-2 pt-2.5 px-4 border-b
+      font-bold uppercase text-xs
+      bg-white dark:bg-zinc-900
+      border-zinc-950/10 border-y-zinc-950/20 dark:border-white/10 dark:border-y-white/20
+      first:rounded-tl-md last:rounded-tr-md;
+  }
+}

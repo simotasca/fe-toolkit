@@ -1,0 +1,24 @@
+@import "tailwindcss" source("../..");
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --container-xs: "480px";
+  
+  --color-zinc-850: #1d1d20;
+  --color-zinc-910: #161618;
+  --color-zinc-920: #131316;
+  --color-zinc-930: #101013;
+  --color-zinc-950: #0d0d0f;
+}
+
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@import "./reset.css";

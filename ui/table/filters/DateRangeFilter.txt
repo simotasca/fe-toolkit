@@ -1,0 +1,172 @@
+import { Button } from "@/shared/components/ui/buttons/Button";
+import { Compact } from "@/shared/components/ui/display/Compact";
+import { HBox } from "@/shared/components/ui/display/flex";
+import { Label } from "@/shared/components/ui/form";
+import { Field } from "@/shared/components/ui/form/Field";
+import { Input } from "@/shared/components/ui/form/inputs/Input";
+import { Dropdown, DropdownPanel, DropdownToggle } from "@/shared/components/ui/overlays/dropdown";
+import { FilterToggle } from "@/shared/components/ui/table/filters/FilterToggle";
+import { Subtitle } from "@/shared/components/ui/typography/titles";
+import type { Filters, FiltersActions, useFiltersState } from "@/shared/hooks/table/useFilters";
+import { endOfDay, endOfMonth, endOfWeek, endOfYear, startOfDay, startOfMonth, startOfWeek, startOfYear } from "@/shared/lib/utils/date";
+import { CalendarDateRangeIcon, XMarkIcon } from "@heroicons/react/16/solid";
+
+type DateKeys<T> = { [K in keyof T]: T[K] extends (Date | undefined) ? K : never; }[keyof T];
+
+type SimpleDateRangeFilterProps<T extends Filters> = 
+  FiltersActions<T>
+  FiltersActions<T>
+  & { title: string; minProp: DateKeys<T>, maxProp: DateKeys<T> };
+
+export function SimpleDateRangeFilter<T extends Filters>(p: SimpleDateRangeFilterProps<T>) {
+  return <DateRangeFilter 
+    title={p.title}
+    min={p.get(p.minProp)}
+    setMin={p.setter(p.minProp) as (val: Date | undefined) => void}
+    removeMin={() => p.remove(p.minProp)}
+    max={p.get(p.maxProp)}
+    setMax={p.setter(p.maxProp) as (val: Date | undefined) => void}
+    removeMax={() => p.remove(p.maxProp)}
+  />;
+}
+
+type DateRangeFilterProps = {
+  title: string;
+  min: Date | undefined;
+  setMin: (val: Date | undefined) => void;
+  removeMin?: () => void;
+  max: Date | undefined;
+  setMax: (val: Date | undefined) => void;
+  removeMax?: () => void;
+};
+
+export function DateRangeFilter(p: DateRangeFilterProps) {
+  const removeMin = p.removeMin || (() => p.setMin(undefined));
+  const removeMax = p.removeMax || (() => p.setMax(undefined));
+  return (
+    <>
+      <Dropdown>
+        <DropdownToggle as="span">
+          <FilterToggle
+            icon={<CalendarDateRangeIcon />}
+            name={p.title}
+            values={
+              !p.min && !p.max
+                ? []
+                : !p.max
+                ? [`da: ${toInputDate(p.min)}`]
+                : !p.min
+                ? [`a: ${toInputDate(p.max)}`]
+                : [
+                    `da: ${toInputDate(p.min)}`,
+                    `a: ${toInputDate(p.max)}`,
+                  ]
+            }
+          />
+        </DropdownToggle>
+        <DropdownPanel anchor="bottom start">
+          <div className="px-4 pt-3 pb-4">
+            <div className="grid grid-cols-2 gap-x-2 ">
+              <HBox className="col-span-full items-start mb-2">
+                <Subtitle>{p.title}:</Subtitle>
+                <Button
+                  size="sm"
+                  className="ml-auto"
+                  onClick={() => { removeMin(); removeMax(); }}
+                  disabled={!p.max && !p.min}
+                >
+                  Cancella
+                </Button>
+              </HBox>
+
+              <Field>
+                <Label className="text-xs">Da:</Label>
+                <Compact>
+                  <Input
+                    type="date"
+                    value={toInputDate(p.min)}
+                    max={toInputDate(p.max)}
+                    onChange={(el) => p.setMin(el.target.valueAsDate || undefined)}
+                  />
+                  {p.min && (
+                    <Button onClick={removeMin}>
+                      <XMarkIcon />
+                    </Button>
+                  )}
+                </Compact>
+              </Field>
+              <Field>
+                <Label className="text-xs">A:</Label>
+                <Compact>
+                  <Input
+                    type="date"
+                    value={toInputDate(p.max)}
+                    min={toInputDate(p.min)}
+                    onChange={(el) => p.setMax(el.target.valueAsDate || undefined)}
+                  />
+                  {p.max && (
+                    <Button onClick={removeMax}>
+                      <XMarkIcon />
+                    </Button>
+                  )}
+                </Compact>
+              </Field>
+
+              <hr className="col-span-2 my-3" />
+
+              <div className="col-span-full flex flex-wrap gap-x-2">
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    p.setMin(startOfDay());
+                    p.setMax(endOfDay());
+                  }}
+                >
+                  Oggi
+                </Button>
+
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    p.setMin(startOfWeek());
+                    p.setMax(endOfWeek());
+                  }}
+                >
+                  Questa settimana
+                </Button>
+
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    p.setMin(startOfMonth());
+                    p.setMax(endOfMonth());
+                  }}
+                >
+                  Questo mese
+                </Button>
+
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    p.setMin(startOfYear());
+                    p.setMax(endOfYear());
+                  }}
+                >
+                  Quest'anno
+                </Button>
+              </div>
+            </div>
+          </div>
+        </DropdownPanel>
+      </Dropdown>
+    </>
+  );
+}
+
+function toInputDate(arg: any) {
+  if (!arg) return arg;
+  const date = new Date(arg);
+  return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+  
+}
+

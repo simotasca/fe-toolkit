@@ -1,0 +1,17 @@
+@reference "@pkg/tw/index.css";
+@import "../../index.css";
+
+@layer components {
+  .link {
+    @apply relative py-2
+      icon:transition-colors icon:duration-200;
+
+    &.active {
+      @apply icon:text-zinc-900 dark:icon:text-white;
+    }
+
+    &.inactive {
+      @apply icon:text-zinc-800 dark:icon:text-zinc-400;
+    }
+  }
+}

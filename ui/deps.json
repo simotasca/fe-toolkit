@@ -1,0 +1,29 @@
+{
+  "name": "@isema/ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.ts",
+    "./table": "./lib/table/index.ts",
+    "./form": "./lib/form/index.ts",
+    "./components": "./lib/components/index.ts",
+    "./sidebar": "./lib/sidebar/index.ts",
+    "./style": "./lib/index.css"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.9",
+    "@isema/hooks": "0.0.0",
+    "@floating-ui/react": "^0.27.17"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0"
+  },
+  "devDependencies": {
+    "unplugin-icons": "^22.5.0",
+    "@isema/tw": "0.0.0",
+    "@isema/ts": "0.0.0",
+    "typescript": "~5.8.3",
+    "tailwindcss": "^4.1.10"
+  }
+}

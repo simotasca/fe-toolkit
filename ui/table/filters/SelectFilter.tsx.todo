@@ -1,0 +1,76 @@
+import { Button } from "@/shared/ui/buttons/Button";
+import { HBox } from "@/shared/ui/display/flex";
+import { Select } from "@/shared/ui/form/inputs/Select";
+import {
+  Dropdown,
+  DropdownPanel,
+  DropdownToggle,
+} from "@/shared/ui/overlays/dropdown";
+import { FilterToggle } from "@/shared/ui/table/filters/FilterToggle";
+import { Subtitle } from "@/shared/ui/typography/titles";
+import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import { useEffect, useRef, useState } from "react";
+
+const EMPTY_DISPLAY = "-- empty --";
+
+type SelectFilterProps = {
+  value: string;
+  setValue(v: string | undefined): void;
+  title: string;
+  icon?: React.ReactNode;
+  options: Record<string, string>;
+};
+
+export function SelectFilter(p: SelectFilterProps) {
+  const [selectedDisplay, setSelectedDisplay] = useState("");
+  const ref = useRef<HTMLSelectElement>(null);
+  useEffect(() => {
+    ref.current &&
+      setSelectedDisplay(
+        ref.current.value
+          ? ref.current.querySelector("option:checked")!.textContent!
+          : ""
+      );
+  }, [p.value]);
+  return (
+    <>
+      <Dropdown>
+        <DropdownToggle as="span">
+          <FilterToggle
+            icon={p.icon || <ChevronDownIcon />}
+            name={p.title}
+            values={(selectedDisplay || undefined) && [selectedDisplay]}
+          />
+        </DropdownToggle>
+        <DropdownPanel static anchor="bottom start">
+          {({ open }) => (
+            <div className={"px-4 pt-3 pb-4 " + (open ? " " : "hidden")}>
+              <HBox className="col-span-full items-start mb-2">
+                <Subtitle>{p.title}:</Subtitle>
+                <Button
+                  size="sm"
+                  className="ml-auto"
+                  onClick={() => p.setValue(undefined)}
+                  disabled={!p.value}
+                >
+                  Cancella
+                </Button>
+              </HBox>
+
+              <Select
+                ref={ref}
+                value={p.value}
+                onChange={(e) => p.setValue(e.target.value)}
+              >
+                <option value="">{EMPTY_DISPLAY}</option>
+                {Object.entries(p.options).map(([value, display], idx) => (
+                  <option key={idx} value={value}>{display}</option>
+                ))}
+              </Select>
+            </div>
+          )}
+        </DropdownPanel>
+      </Dropdown>
+    </>
+  );
+}

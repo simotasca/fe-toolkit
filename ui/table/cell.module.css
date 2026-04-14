@@ -1,0 +1,53 @@
+@reference "@pkg/tw/index.css";
+
+@layer components {
+  .cell {
+    /* base */
+    @apply py-2 px-4 border-b
+      bg-white dark:bg-zinc-900 border-zinc-950/10 dark:border-white/10
+      truncate;
+
+    /* alternate colors */
+    :where(tbody tr:nth-child(odd)) & {
+      @apply bg-[#fdfdfd] dark:bg-zinc-850;
+    }
+    :where(tbody tr:hover) & {
+      @apply bg-zinc-100 dark:bg-zinc-800
+    }
+    :where(tbody tr:nth-child(odd):hover) & {
+      @apply bg-zinc-100 dark:bg-zinc-800;
+    }
+
+    /* footer cells */
+    :where(tfoot) & {
+      @apply py-2.5 ;
+    }
+    
+    /* desktop */
+    @variant md {
+      @apply [tr:last-child_&]:border-b-0;
+      :where(tfoot) & {
+        @apply border-t border-y-zinc-950/20 dark:border-y-white/20
+      }
+    }
+    
+    /* mobile */
+    @variant max-md {
+      @apply block w-full max-w-full
+        bg-zinc-100 dark:bg-zinc-850
+        last-of-type:border-b-0
+        whitespace-break-spaces;
+
+      :where(tbody) & {
+        @apply text-right;
+      }
+
+      /* label */
+      &::before {
+        content: attr(data-label);
+        @apply float-left text-xs/5 font-medium uppercase pr-4;
+      }
+    }
+
+  }
+}

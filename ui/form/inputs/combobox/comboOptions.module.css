@@ -1,0 +1,13 @@
+@reference "@pkg/tw/index.css";
+
+@layer components {
+  .options {
+    /* position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: var(--color-red-800); */
+    @apply border empty:invisible;
+    @apply bg-white dark:bg-neutral-900 py-1;
+  }
+}

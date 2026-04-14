@@ -1,0 +1,23 @@
+@reference "@pkg/tw/index.css";
+
+@layer components {
+  .container {
+    @apply relative isolate;
+    
+    &>.inner {
+      @apply 
+        overflow-x-scroll /* scroll instead of auto to avoid layout shift in chrome */
+        w-full rounded-lg
+        bg-white dark:bg-zinc-900
+        grid place-items-start *:row-[-1/1] *:col-[-1/1];
+        
+      @variant max-md {
+        @apply rounded-none overflow-x-hidden;
+      }
+    }
+
+    &>.outline {
+      @apply max-md:hidden absolute inset-0 z-51 size-full border rounded-lg border-zinc-950/20 dark:border-white/20 pointer-events-none
+    }
+  }
+}
