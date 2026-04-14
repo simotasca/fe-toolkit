@@ -1,6 +1,0 @@
-@reference "@pkg/tw/index.css";
-@layer components {
-  .label {
-    @apply font-medium text-sm shrink-0;
-  }
-}

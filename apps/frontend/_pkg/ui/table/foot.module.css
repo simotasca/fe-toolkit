@@ -1,7 +1,0 @@
-@reference "@pkg/tw/index.css";
-
-@layer components {
-  .foot {
-    @apply bg-white dark:bg-zinc-900 rounded-b-md;
-  }
-}

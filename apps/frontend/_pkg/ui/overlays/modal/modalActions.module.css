@@ -1,7 +1,0 @@
-@reference "@pkg/tw/index.css";
-
-@layer components {
-  .actions {
-    @apply mt-6 flex flex-col-reverse items-center justify-start gap-3 *:w-full sm:flex-row sm:*:w-auto;
-  }
-}

@@ -1,7 +1,0 @@
-@reference "@pkg/tw/index.css";
-
-@layer components {
-  .body {
-    @apply mt-6;
-  }
-}

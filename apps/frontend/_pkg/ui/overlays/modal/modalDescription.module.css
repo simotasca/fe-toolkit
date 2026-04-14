@@ -1,7 +1,0 @@
-@reference "@pkg/tw/index.css";
-
-@layer components {
-  .description {
-    @apply block mt-2 text-pretty;
-  }
-}

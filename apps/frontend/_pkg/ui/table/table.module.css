@@ -1,9 +1,0 @@
-@reference "@pkg/tw/index.css";
-
-@layer components {
-  .table {
-    @apply w-full text-left text-sm/tight
-      text-zinc-950 dark:text-white
-      border-separate border-spacing-0 whitespace-nowrap;
-  }
-}

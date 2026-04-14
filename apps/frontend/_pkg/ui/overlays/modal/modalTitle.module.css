@@ -1,9 +1,0 @@
-@reference "@pkg/tw/index.css";
-@reference "../../index.css";
-
-@layer components {
-  .title {
-    @apply text-balance text-lg/6 font-semibold text-zinc-950 sm:text-base/6 dark:text-white
-      icon:size-6 icon:mr-3 icon:inline-block;
-  }
-}

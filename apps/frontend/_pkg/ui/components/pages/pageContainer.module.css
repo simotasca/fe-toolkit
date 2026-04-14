@@ -1,7 +1,0 @@
-@reference "@pkg/tw/index.css";
-
-@layer components {
-  .pageContainer {
-    @apply p-6 max-w-5xl;
-  }
-}
